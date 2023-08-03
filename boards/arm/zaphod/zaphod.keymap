@@ -111,8 +111,8 @@
        	nav_layer {
 		    bindings = <
 		&none &kp LC(KP_N4) &kp LC(KP_N5) &kp LC(KP_N6) &none		&none &kp INS &kp DEL &kp PG_UP  &none 
-		&winRight &kp KP_N8 &kp KP_N9 &kp C_VOL_UP &none                &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
-		&winLeft &vsCodeFormat &kp LC(C) &kp C_VOL_DN &kp LC(V)        &none &kp HOME &kp DOWN &kp PG_DN  &kp END 
+		&winLeft &kp KP_N8 &kp KP_N9 &kp C_VOL_UP &none                &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
+		&winRight &vsCodeFormat &kp LC(C) &kp C_VOL_DN &kp LC(V)        &none &kp HOME &kp DOWN &kp PG_DN  &kp END 
 					                &kp SPACE &kp TAB               &kp ESC  &trans 
 		    >;
 		};
