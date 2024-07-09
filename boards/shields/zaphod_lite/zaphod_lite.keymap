@@ -25,6 +25,20 @@
 
 / { 
 
+    combos {
+        compatible = "zmk,combos";
+        combo_bkspc {
+            timeout-ms = <50>;
+            key-positions = <26 27>; // H + ,
+            bindings = <&kp BACKSPACE>;
+        };
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>; // Q + W
+            bindings = <&kp ESC>;
+        };
+    };
+
     behaviors {
         ht: hold_tap {
             label = "hold_tap";
@@ -78,6 +92,16 @@
                 , <&macro_release &kp LSHIFT &kp LALT>
                 ;
         };
+        teamsMute: teamsMute {
+            label = "teamsMute";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHIFT &kp LCTRL>
+                , <&macro_tap &kp M>
+                , <&macro_release &kp LSHIFT &kp LCTRL>
+                ;
+        };
     };
 
     conditional_layers {
@@ -110,10 +134,10 @@
 
        	nav_layer {
 		    bindings = <
-		&none &kp LC(KP_N4) &kp LC(KP_N5) &kp LC(KP_N6) &none		&none &kp INS &kp DEL &kp PG_UP  &none 
-		&winLeft &kp KP_N8 &kp KP_N9 &kp C_VOL_UP &none                &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
+		&none &none &none &teamsMute &none		                        &none &kp INS &kp DEL &kp PG_UP  &none 
+		&winLeft &none &none &kp C_VOL_UP &none                         &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
 		&winRight &vsCodeFormat &kp LC(C) &kp C_VOL_DN &kp LC(V)        &none &kp HOME &kp DOWN &kp PG_DN  &kp END 
-					                &kp SPACE &kp TAB               &kp ESC  &trans 
+					                &kp SPACE &kp TAB                   &none  &trans  
 		    >;
 		};
 		
@@ -122,7 +146,7 @@
 		&kp RA(E)  &kp RA(N7) &kp RA(N0)  &kp LS(N8)  &kp LS(N9)    			    &kp RA(N8) &kp RA(N9) &kp LS(RBKT) &kp RA(RBKT) &none 
 		&kp GRAVE  &kp RBKT  &kp LS(N0)  &kp SLASH  &kp LS(N4) 			            &kp LS(NON_US_HASH) &kp LS(N2) &kp LS(N7) &kp LS(DOT) &kp LS(NON_US_BACKSLASH)
 		&kp LS(COMMA) &kp LS(N5) &kp RA(NON_US_BACKSLASH) &kp LS(SLASH) &kp RA(Q)   &kp LS(N1) &kp LS(EQUAL) &kp NON_US_HASH &kp LS(N6) &kp NON_US_BACKSLASH
-					                    &kp ESC &kp RA(MINUS)                       &kp ENTER &trans
+					                    &none   &kp RA(MINUS)                       &kp ENTER &trans
 		    >;
 		};
 
@@ -140,7 +164,7 @@
 		&none &none &none &none &none    			        &none &none &kp LBKT &none &none 
 		&kp SINGLE_QUOTE &none &kp MINUS &none &none        &none &none &none &none &kp SEMICOLON
 		&none &none &none &none &none    			        &none &none &none &none &none
-                    &kp SPACE &kp TAB   			        &kp ESC  &trans
+                    &kp SPACE &kp TAB   			        &none  &trans
 		    >;
 		};	
 		
