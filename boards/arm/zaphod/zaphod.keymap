@@ -178,7 +178,7 @@
         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans                  
 		    >;
-        }
+        };
 
         mac_sym_layer {
 		    bindings = <
