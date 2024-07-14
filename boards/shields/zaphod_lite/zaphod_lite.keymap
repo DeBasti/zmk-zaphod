@@ -13,11 +13,13 @@
 #define AC(keycode) &ac LC(keycode) keycode
 
 #define LTR 0
-#define NAV 1
-#define SYM 2
-#define NUM 3
-#define SON 4
-#define TRI 5
+#define MAC 1
+#define MACSYM 2
+#define NAV 3
+#define SYM 4
+#define NUM 5
+#define SON 6
+#define TRI 7
 
 &mt {
   //  standard is hold preferred with tapping_term_ms = <200>;
@@ -36,6 +38,11 @@
             timeout-ms = <50>;
             key-positions = <0 1>; // Q + W
             bindings = <&kp ESC>;
+        };
+        combo_mac {
+            timeout-ms = <50>;
+            key-positions = <3 4>; // H + ,
+            bindings = <&tog MAC>;
         };
     };
 
@@ -110,6 +117,10 @@
             if-layers = <SYM NUM>;
             then-layer = <TRI>;
         };
+        mac_default {
+            if-layers = <MACSYM>;
+            then-layer = <MAC>;
+        };
     };
 
     keymap {
@@ -129,6 +140,32 @@
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                         &lt NAV SPACE  &lt NUM TAB   &lt SYM ENTER  &mt LSHIFT BACKSPACE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯                   
+		    >;
+		};
+
+        mac_default {
+		    bindings = <
+		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
+            &kp Q      &kp W      &kp F      &kp P      &kp Q          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
+        HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ?        │
+            &kp Y      &kp X      AC(C)     &kp D       AC(V)          &kp K      &kp H      &kp COMMA  &kp DOT    &kp LS(MINUS)
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                        &lt NAV SPACE  &lt NUM TAB   &lt MACSYM ENTER  &mt LSHIFT BACKSPACE
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯                   
+		    >;
+		};
+
+        mac_sym_layer {
+		    bindings = <
+		&kp RA(E)  &kp RA(N7) &kp RA(N0)  &kp LS(N8)  &kp LS(N9)    			    &kp RA(N8) &kp RA(N9) &kp LS(RBKT) &kp RA(RBKT) &none 
+		&kp GRAVE  &kp RBKT  &kp LS(N0)  &kp SLASH  &kp LS(N4) 			            &kp LS(NON_US_HASH) &kp LS(N2) &kp LS(N7) &kp LS(DOT) &kp LS(NON_US_BACKSLASH)
+		&kp LS(COMMA) &kp LS(N5) &kp RA(NON_US_BACKSLASH) &kp LS(SLASH) &kp RA(Q)   &kp LS(N1) &kp LS(EQUAL) &kp NON_US_HASH &kp LS(N6) &kp NON_US_BACKSLASH
+					                    &none   &kp Q                       &kp ENTER &trans
 		    >;
 		};
 
