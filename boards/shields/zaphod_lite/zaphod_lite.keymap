@@ -40,6 +40,16 @@
             key-positions = <0 1>; // Q + W
             bindings = <&kp ESC>;
         };
+        combo_mac1 {
+            timeout-ms = <50>;
+            key-positions = <5 6>; // Q + W
+            bindings = <&mo MACTEMP>;
+        };
+        combo_mac2 {
+            timeout-ms = <50>;
+            key-positions = <3 4>; // Q + W
+            bindings = <&tog MACLOCK>;
+        };
     };
 
     behaviors {
@@ -130,7 +140,7 @@
 		    bindings = <
 		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
-            &kp Q      &kp W      &kp F      &kp P      &mo MACTEMP          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
         HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
@@ -147,7 +157,7 @@
 		    bindings = <
 		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
-            &tog MACLOCK  &kp W      &kp F      &kp P      &kp Q          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+            &kp Q     &kp W      &kp F      &kp P      &kp Q          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
         HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
