@@ -16,11 +16,13 @@
 #define MAC 1
 #define MACTEMP 2
 #define MACLOCK 3
-#define NAV 4
-#define SYM 5
-#define NUM 6
-#define SON 7
-#define TRI 8
+#define MACSYM 4
+#define MACNAV 5
+#define NAV 6
+#define SYM 7
+#define NUM 8
+#define SON 9
+#define TRI 10
 
 &mt {
   //  standard is hold preferred with tapping_term_ms = <200>;
@@ -157,7 +159,7 @@
 		    bindings = <
 		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
-            &kp Q     &kp W      &kp F      &kp P      &kp Q          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+            &kp Q     &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
         HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
@@ -165,7 +167,7 @@
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ?        │
             &kp Y      &kp X      AC(C)     &kp D       AC(V)          &kp K      &kp H      &kp COMMA  &kp DOT    &kp LS(MINUS)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                        &lt NAV SPACE  &lt NUM TAB   &lt SYM ENTER  &mt LSHIFT BACKSPACE
+                                        &lt MACNAV SPACE  &lt NUM TAB   &lt MACSYM ENTER  &mt LSHIFT BACKSPACE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯                   
 		    >;
 		};
@@ -188,6 +190,27 @@
         &trans &trans &trans &trans                  
 		    >;
         };
+
+//TODO: macsym & macnav anpassen
+
+        macsym_layer {
+		    bindings = <
+		&kp RA(E)  &kp RA(N7) &kp RA(N0)  &kp LS(N8)  &kp LS(N9)    			    &kp RA(N8) &kp RA(N9) &kp LS(RBKT) &kp RA(RBKT) &none 
+		&kp GRAVE  &kp RBKT  &kp LS(N0)  &kp SLASH  &kp LS(N4) 			            &kp LS(NON_US_HASH) &kp LS(N2) &kp LS(N7) &kp LS(DOT) &kp LS(NON_US_BACKSLASH)
+		&kp LS(COMMA) &kp LS(N5) &kp RA(NON_US_BACKSLASH) &kp LS(SLASH) &kp RA(Q)   &kp LS(N1) &kp LS(EQUAL) &kp NON_US_HASH &kp LS(N6) &kp NON_US_BACKSLASH
+					                    &none   &kp RA(MINUS)                       &kp ENTER &trans
+		    >;
+		};
+
+        macnav_layer {
+		    bindings = <
+		&none &none &none &teamsMute &none		                        &none &kp INS &kp DEL &kp PG_UP  &none 
+		&kp RC(LEFT) &none &none &kp C_VOL_UP &none                         &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
+		&kp RC(RIGHT) &vsCodeFormat &kp LC(C) &kp C_VOL_DN &kp LC(V)        &none &kp HOME &kp DOWN &kp PG_DN  &kp END 
+					                &kp SPACE &kp TAB                   &none  &trans  
+		    >;
+		};
+		
 
        	nav_layer {
 		    bindings = <
