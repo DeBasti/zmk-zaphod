@@ -16,12 +16,11 @@
 #define MAC 1
 #define MACTEMP 2
 #define MACLOCK 3
-#define MACSYM 4
-#define NAV 5
-#define SYM 6
-#define NUM 7
-#define SON 8
-#define TRI 9
+#define NAV 4
+#define SYM 5
+#define NUM 6
+#define SON 7
+#define TRI 8
 
 &mt {
   //  standard is hold preferred with tapping_term_ms = <200>;
@@ -156,13 +155,13 @@
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ?        │
             &kp Y      &kp X      AC(C)     &kp D       AC(V)          &kp K      &kp H      &kp COMMA  &kp DOT    &kp LS(MINUS)
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                        &lt NAV SPACE  &lt NUM TAB   &lt MACSYM ENTER  &mt LSHIFT BACKSPACE
+                                        &lt NAV SPACE  &lt NUM TAB   &lt SYM ENTER  &mt LSHIFT BACKSPACE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯                   
 		    >;
 		};
 
 
-        mac_temp_layer {
+        mactemp_layer {
 		    bindings = <
 		&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
@@ -171,7 +170,7 @@
 		    >;
 		};
 
-        mac_lock_layer {
+        maclock_layer {
             bindings = <
 		&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
@@ -179,15 +178,6 @@
         &trans &trans &trans &trans                  
 		    >;
         };
-
-        mac_sym_layer {
-		    bindings = <
-		&kp RA(E)  &kp RA(N7) &kp RA(N0)  &kp LS(N8)  &kp LS(N9)    			    &kp RA(N8) &kp RA(N9) &kp LS(RBKT) &kp RA(RBKT) &none 
-		&kp GRAVE  &kp RBKT  &kp LS(N0)  &kp SLASH  &kp LS(N4) 			            &kp LS(NON_US_HASH) &kp LS(N2) &kp LS(N7) &kp LS(DOT) &kp LS(NON_US_BACKSLASH)
-		&kp LS(COMMA) &kp LS(N5) &kp RA(NON_US_BACKSLASH) &kp LS(SLASH) &kp RA(Q)   &kp LS(N1) &kp LS(EQUAL) &kp NON_US_HASH &kp LS(N6) &kp NON_US_BACKSLASH
-					                    &none   &kp Q                       &kp ENTER &trans
-		    >;
-		};
 
        	nav_layer {
 		    bindings = <
