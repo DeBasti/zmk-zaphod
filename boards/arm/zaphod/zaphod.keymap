@@ -13,9 +13,9 @@
 #define AC(keycode) &ac LC(keycode) keycode
 
 #define LTR 0
-#define MAC 3
-#define MACTEMP 1
-#define MACLOCK 2
+#define MAC 1
+#define MACTEMP 2
+#define MACLOCK 3
 #define NAV 4
 #define SYM 5
 #define NUM 6
@@ -130,7 +130,7 @@
 		    bindings = <
 		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
-            &kp Q      &kp W      &kp F      &kp P      &to MAC          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+            &kp Q      &kp W      &kp F      &kp P      &mo MACTEMP          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
         HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
