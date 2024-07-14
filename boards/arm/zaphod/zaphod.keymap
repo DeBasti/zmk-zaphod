@@ -14,12 +14,14 @@
 
 #define LTR 0
 #define MAC 1
-#define MACSYM 2
-#define NAV 3
-#define SYM 4
-#define NUM 5
-#define SON 6
-#define TRI 7
+#define MACTEMP 2
+#define MACLOCK 3
+#define MACSYM 4
+#define NAV 5
+#define SYM 6
+#define NUM 7
+#define SON 8
+#define TRI 9
 
 &mt {
   //  standard is hold preferred with tapping_term_ms = <200>;
@@ -38,11 +40,6 @@
             timeout-ms = <50>;
             key-positions = <0 1>; // Q + W
             bindings = <&kp ESC>;
-        };
-        combo_mac {
-            timeout-ms = <50>;
-            key-positions = <3 4>; // H + ,
-            bindings = <&tog MAC>;
         };
     };
 
@@ -117,8 +114,12 @@
             if-layers = <SYM NUM>;
             then-layer = <TRI>;
         };
-        mac_default {
-            if-layers = <MACSYM>;
+        mac_temp {
+            if-layers = <MACTEMP>;
+            then-layer = <MAC>;
+        };
+        mac_lock {
+            if-layers = <MACLOCK>;
             then-layer = <MAC>;
         };
     };
@@ -130,7 +131,7 @@
 		    bindings = <
 		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
-            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+            &mo MACTEMP      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
         HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
@@ -147,7 +148,7 @@
 		    bindings = <
 		//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  '       │
-            &kp Q      &kp W      &kp F      &kp P      &kp Q          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
+            &tog MACLOCK  &kp W      &kp F      &kp P      &kp Q          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
         HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
@@ -159,6 +160,25 @@
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯                   
 		    >;
 		};
+
+
+        mac_temp_layer {
+		    bindings = <
+		&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans                  
+		    >;
+		};
+
+        mac_lock_layer {
+            bindings = <
+		&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans                  
+		    >;
+        }
 
         mac_sym_layer {
 		    bindings = <
