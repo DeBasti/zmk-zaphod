@@ -9,8 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3  &ht LSHIFT k4
-#define AC(keycode) &ac LC(keycode) keycode
+#define HRML(k1,k2,k3,k4) &ht LCTRL k1  &ht LALT k2  &ht LGUI k3  &ht LSHIFT k4
+#define AC(keycode) &ac LG(keycode) keycode
 
 #define LTR 0
 #define MAC 1
@@ -145,7 +145,7 @@
             &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Z      &kp LS(NON_US_HASH)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
-        HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RCTRL E  &lt SON I  &ht RGUI O
+        HRML(A,         R,         S,         T)       &kp G          &kp M  &ht RSHIFT N  &ht RGUI E  &lt SON I  &ht RCTRL O
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ?        │
             &kp Y      &kp X      AC(C)     &kp D       AC(V)          &kp K      &kp H      &kp COMMA  &kp DOT    &kp LS(MINUS)
@@ -191,7 +191,7 @@
 		    >;
         };
 
-//TODO: macsym & macnav anpassen
+//TODO: macsym anpassen
 
         macsym_layer {
 		    bindings = <
@@ -204,9 +204,9 @@
 
         macnav_layer {
 		    bindings = <
-		&none &none &none &teamsMute &none		                        &none &kp INS &kp DEL &kp PG_UP  &none 
-		&kp RC(LEFT) &none &none &kp C_VOL_UP &none                         &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
-		&kp RC(RIGHT) &vsCodeFormat &kp LC(C) &kp C_VOL_DN &kp LC(V)        &none &kp HOME &kp DOWN &kp PG_DN  &kp END 
+		&none &none &none &kp LG(LS(M)) &none		                        &none &kp INS &kp DEL &kp PG_UP  &none 
+		&kp RC(LEFT) &none &kp LG(S) &kp C_VOL_UP &none                         &kp PSCRN &kp LEFT  &kp UP &kp RIGHT  &none 
+		&kp RC(RIGHT) &vsCodeFormat &kp LG(C) &kp C_VOL_DN &kp LG(V)        &none &kp LG(LEFT) &kp DOWN &kp PG_DN  &kp LG(RIGHT) 
 					                &kp SPACE &kp TAB                   &none  &trans  
 		    >;
 		};
