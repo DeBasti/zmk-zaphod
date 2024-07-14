@@ -13,9 +13,9 @@
 #define AC(keycode) &ac LC(keycode) keycode
 
 #define LTR 0
-#define MAC 1
-#define MACTEMP 2
-#define MACLOCK 3
+#define MAC 3
+#define MACTEMP 1
+#define MACLOCK 2
 #define NAV 4
 #define SYM 5
 #define NUM 6
